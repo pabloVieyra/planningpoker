@@ -6,7 +6,6 @@ class JoinRoom {
     }
     
     async execute(userName: string) {
-        console.info('userName --> ', userName)
         await this.roomRepository.joinUser(userName)
     }
 }

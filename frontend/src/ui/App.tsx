@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import UserNameForm from './UserNameForm';
 import JoinRoom from '../core/useCases/JoinRoom';
-import RoomApiRepository from '../core/infrastructure/RoomApiRepository';
+import RoomWebSocketRepository from '../core/infrastructure/RoomWebSocketRepository';
 import { ContextProvider } from './Context';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   const onChangeUserName = (newUserName: string) => {
     setUserName(newUserName)
 
-    const roomRepo = new RoomApiRepository()
+    const roomRepo = new RoomWebSocketRepository()
     const useCase = new JoinRoom(roomRepo)
     useCase.execute(newUserName)
   }
